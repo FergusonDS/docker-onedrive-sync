@@ -23,7 +23,7 @@ docker run -it \
   -e PUID=$(id -u) -e PGID=$(id -g) \
   -v </path/to/config>:/config \
   -v </path/to/documents>:/documents \
-  oznu/onedrive
+  fergusonds/onedrive
 ```
 
 Once authenticated you can stop the sync process and restart the container in non-interactive mode.
@@ -36,7 +36,7 @@ docker run \
   -e TZ=<timezone> \
   -v </path/to/config>:/config \
   -v </path/to/documents>:/documents \
-  oznu/onedrive
+  fergusonds/onedrive
 ```
 
 ## Parameters
@@ -58,7 +58,7 @@ If you prefer to use [Docker Compose](https://docs.docker.com/compose/):
 version: '2'
 services:
   onedrive:
-    image: oznu/onedrive
+    image: fergusonds/onedrive
     restart: always
     environment:
       - TZ=Australia/Sydney
@@ -66,7 +66,7 @@ services:
       - PUID=911
     volumes:
       - ./config:/config
-      - /home/oznu:/documents
+      - /home/fergusonds:/documents
 ```
 
 To authenticate with your Microsoft account for the first time run (this will start the container in interactive mode):
